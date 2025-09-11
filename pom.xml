@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<springCloudVersion>2025.0.0</springCloudVersion>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -42,7 +43,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
-			<version>5.0.0-M1</version>
+			<version>4.3.0</version>
 		</dependency>
 
 		<dependency>
@@ -71,6 +72,7 @@
 
 	<build>
 		<plugins>
+			<!-- Utilizar este fragmento de codigo solo para cuando se esten haciendo pruebas locales y cambios en el codigo -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -79,6 +81,7 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
@@ -91,6 +94,7 @@
 						<exclude>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
 						</exclude>
 					</excludes>
 				</configuration>

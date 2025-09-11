@@ -1,1 +1,13 @@
-spring.application.name=template-backend-front
+spring:
+  application:
+    name: template-backend-front
+
+server:
+  port: 9090
+  servlet:
+    context-path: /backend
+
+
+#configuracion de recurso que consume la aplicacion
+company-test:
+  uri: http://localhost:8080
