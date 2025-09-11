@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 public class TestServiceImpl implements TestService {
 
     //TODO: falta agregar la configuracion de tolerancia a fallos
+    // https://medium.com/@ahmettemelkundupoglu/mastering-the-circuit-breaker-pattern-in-microservices-with-java-techniques-for-modern-resiliency-e2a07898586a
+    // https://docs.spring.io/spring-cloud-circuitbreaker/reference/index.html
+    // https://resilience4j.readme.io/docs/getting-started
 
     //private final ClientCompanyTest clientCompanyTest;
     private final ClientCompanyTestService service;
