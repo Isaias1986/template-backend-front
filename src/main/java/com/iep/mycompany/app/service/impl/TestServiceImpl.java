@@ -1,6 +1,7 @@
 package com.iep.mycompany.app.service.impl;
 
 import com.iep.mycompany.app.client.ClientCompanyTest;
+import com.iep.mycompany.app.client.impl.ClientCompanyTestService;
 import com.iep.mycompany.app.model.request.RequestTest;
 import com.iep.mycompany.app.model.response.ResponseTest;
 import com.iep.mycompany.app.service.TestService;
@@ -13,25 +14,28 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class TestServiceImpl implements TestService {
 
-    private final ClientCompanyTest clientCompanyTest;
+    //TODO: falta agregar la configuracion de tolerancia a fallos
+
+    //private final ClientCompanyTest clientCompanyTest;
+    private final ClientCompanyTestService service;
 
     @Override
     public ResponseTest save(RequestTest request) {
-        return null;
+        return null;//clientCompanyTest.save(request).getData();
     }
 
     @Override
     public ResponseTest update(Long id, RequestTest request) {
-        return null;
+        return null;//clientCompanyTest.update(id,request).getData();
     }
 
     @Override
     public ResponseTest findById(Long id) {
-        return clientCompanyTest.getById(id).getData();
+        return service.findById(id);
     }
 
     @Override
     public void deleteById(Long id) {
-
+        //clientCompanyTest.delete(id);
     }
 }

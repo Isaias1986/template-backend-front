@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -58,7 +59,7 @@ public class TestController {
             @ApiResponse(responseCode = "500",description = "Internal Server Error")
     })
     @PostMapping
-    public ResponseEntity<BaseHttpResponse<ResponseTest>> save (@RequestBody RequestTest test){
+    public ResponseEntity<BaseHttpResponse<ResponseTest>> save (@RequestBody @Valid RequestTest test){
         ResponseTest save = service.save(test);
         return ResponseEntity.created(BaseUtils.getUri("/test")).body(
                 BaseHttpResponse
@@ -86,7 +87,7 @@ public class TestController {
     public ResponseEntity<BaseHttpResponse<ResponseTest>> update (
             @PathVariable("id")
             @Parameter(name = "id", description = "Test id")Long id,
-            @RequestBody RequestTest test){
+            @RequestBody @Valid RequestTest test){
         ResponseTest save = service.update(id,test);
         return ResponseEntity.ok(
                 BaseHttpResponse
