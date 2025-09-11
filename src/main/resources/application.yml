@@ -6,8 +6,12 @@ server:
   port: 9090
   servlet:
     context-path: /backend
+  error:
+    include-message: always
 
-
+logging:
+  pattern:
+    console: ${LOGPATTERN_CONSOLE:%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %msg%n}
 #configuracion de recurso que consume la aplicacion
 company-test:
   uri: http://localhost:8080
