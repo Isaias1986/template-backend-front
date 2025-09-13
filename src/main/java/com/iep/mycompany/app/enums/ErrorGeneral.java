@@ -5,7 +5,8 @@ import org.springframework.http.HttpStatus;
 
 public enum ErrorGeneral implements SubBaseErrorCode {
 
-    ERROR_NOT_FOUND("registro no encontrado",HttpStatus.NOT_FOUND);
+    ERROR_NOT_FOUND("registro no encontrado",HttpStatus.NOT_FOUND),
+    ERROR_SERVICE("servicio no disponible por el momento",HttpStatus.INTERNAL_SERVER_ERROR);
 
     private String message;
     private HttpStatus httpStatus;
