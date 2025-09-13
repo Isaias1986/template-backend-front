@@ -25,6 +25,9 @@ public class CustomFeignErrorDecoder  implements ErrorDecoder {
         mapper = mapper.findAndRegisterModules();
         TestsHttpResponse httpResponse = mapper.readValue(responseBody, TestsHttpResponse.class);
 
+        //todo: cosiderar crear una clase de excepcion para servicios no disponivle
+
+
         return new BaseCustomException(
                 httpResponse.getDeveloperMessage(),
                 () -> httpResponse.getGeneralErrorCode(),

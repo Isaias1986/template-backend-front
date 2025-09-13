@@ -1,8 +1,7 @@
 package com.iep.mycompany.app.client.impl;
 
-import com.iep.commons.exception.BaseCustomException;
+
 import com.iep.mycompany.app.client.ClientCompanyTest;
-import com.iep.mycompany.app.enums.ErrorGeneral;
 import com.iep.mycompany.app.model.response.ResponseTest;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
@@ -18,14 +17,13 @@ public class ClientCompanyTestService {
 
 
 
-    @CircuitBreaker(name = "name", fallbackMethod = "findByIdError")
+    @CircuitBreaker(name = "default", fallbackMethod = "findByIdError")
     public ResponseTest findById(Long id){
         return repository.findById(id).getData();
     }
 
-   public ResponseTest findByIdError(Long id, Throwable e)throws Throwable{
+   public ResponseTest findByIdError(Long id, Exception e)throws Exception{
         log.error("::::Fallo en la busqueda:::"+id);
-        log.error(e.getMessage());
         throw e;
     }
 
