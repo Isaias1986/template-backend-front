@@ -1,6 +1,5 @@
 package com.iep.mycompany.app.service.impl;
 
-import com.iep.mycompany.app.client.ClientCompanyTest;
 import com.iep.mycompany.app.client.impl.ClientCompanyTestService;
 import com.iep.mycompany.app.model.request.RequestTest;
 import com.iep.mycompany.app.model.response.ResponseTest;
@@ -15,17 +14,16 @@ import org.springframework.stereotype.Service;
 public class TestServiceImpl implements TestService {
 
 
-    //private final ClientCompanyTest clientCompanyTest;
     private final ClientCompanyTestService service;
 
     @Override
     public ResponseTest save(RequestTest request) {
-        return null;//clientCompanyTest.save(request).getData();
+        return service.save(request);
     }
 
     @Override
     public ResponseTest update(Long id, RequestTest request) {
-        return null;//clientCompanyTest.update(id,request).getData();
+        return service.update(id,request);
     }
 
     @Override
@@ -35,6 +33,6 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public void deleteById(Long id) {
-        //clientCompanyTest.delete(id);
+        service.delete(id);
     }
 }
