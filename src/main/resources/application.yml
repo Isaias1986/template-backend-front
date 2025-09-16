@@ -1,11 +1,11 @@
 spring:
   application:
-    name: template-backend-front
+    name: ${SPRING_APP_NAME:template-backend-front}
 
 server:
-  port: 9090
+  port: ${SPRING_SERVER_PORT:9090}
   servlet:
-    context-path: /backend
+    context-path: ${CONTEXT_PATH:/backend}
   error:
     include-message: always
 
@@ -38,4 +38,4 @@ resilience4j:
 
 #configuracion de recurso que consume la aplicacion
 company-test:
-  uri: http://localhost:8080
+  uri: ${RESOURCE_COMPANY_TEST_URI:http://localhost:8080}

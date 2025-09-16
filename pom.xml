@@ -83,7 +83,7 @@
 	<build>
 		<plugins>
 			<!-- Utilizar este fragmento de codigo solo para cuando se esten haciendo pruebas locales y cambios en el codigo -->
-			<plugin>
+			<!--plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
@@ -108,6 +108,13 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin-->
+
+			<!-- Utilizar este fragmento de codigo solo para cuando se genere el jar
+			 (mvn clean compile install) que servira como imagen de docker -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
